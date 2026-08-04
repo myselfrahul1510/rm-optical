@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { link } from "fs";
 
 export default function Navbar() {
 
@@ -47,6 +48,10 @@ export default function Navbar() {
       name: "Contact",
       link: "#contact",
     },
+    {
+      name: "Our Frames",
+      link: "/collection",
+    }
   ];
 
 
