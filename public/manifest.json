@@ -1,0 +1,62 @@
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    id: "/",
+    name: "R.M OPTICAL | Premium Eye Care",
+    short_name: "R.M OPTICAL",
+    description:
+      "Premium Optical Store offering Computerised Eye Testing, Branded Frames, Sunglasses, Contact Lens and Expert Eye Care.",
+
+    start_url: "/",
+    scope: "/",
+
+    display: "standalone",
+    orientation: "portrait",
+    background_color: "#ffffff",
+    theme_color: "#0A2E73",
+
+    lang: "en",
+    dir: "ltr",
+
+    categories: [
+      "medical",
+      "health",
+      "shopping",
+      "business",
+    ],
+
+    icons: [
+      {
+        src: "/favicon.ico",
+        sizes: "any",
+        type: "image/x-icon",
+      },
+      {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        src: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+
+    screenshots: [
+      {
+        src: "/og-image.jpg",
+        sizes: "1200x630",
+        type: "image/jpeg",
+        form_factor: "wide",
+        label: "R.M OPTICAL Website",
+      },
+    ],
+  };
+}
