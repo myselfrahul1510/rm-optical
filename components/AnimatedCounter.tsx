@@ -10,7 +10,7 @@ interface Props {
 
 export default function AnimatedCounter({
   end,
-  duration = 2000,
+  duration = 5000,
   suffix = "",
 }: Props) {
   const [count, setCount] = useState(0);

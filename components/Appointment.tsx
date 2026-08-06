@@ -47,7 +47,7 @@ export default function Appointment() {
                 </div>
                 <div>
                   <p className="text-sm text-blue-200">Call Us</p>
-                  <p className="text-lg font-semibold">{SITE.phone}</p>
+                  <p className="text-lg font-semibold">+91 62964 57668</p>
                 </div>
               </div>
 
@@ -57,7 +57,7 @@ export default function Appointment() {
                 </div>
                 <div>
                   <p className="text-sm text-blue-200">Visit Us</p>
-                  <p className="font-semibold">{SITE.address}</p>
+                  <p className="font-semibold">Ukilnara, Choumatha, Jogpur Road ,Nadia, 741247</p>
                 </div>
               </div>
 
@@ -67,14 +67,14 @@ export default function Appointment() {
                 </div>
                 <div>
                   <p className="text-sm text-blue-200">Opening Hours</p>
-                  <p className="font-semibold">{SITE.openingHours}</p>
+                  <p className="font-semibold"> 8.30A.M - 1.30P.M & 5.30A.M - 9.30A.M </p>
                 </div>
               </div>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href={`tel:${SITE.phone}`}
+                href={`tel:${+916296457668}`}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-[#0A2E73] transition hover:scale-105"
               >
                 <Phone size={20} />
@@ -82,7 +82,7 @@ export default function Appointment() {
               </a>
 
               <a
-                href={`https://wa.me/${SITE.whatsapp}`}
+                href={`https://wa.me/${+916296457668}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white px-8 py-4 font-semibold transition hover:bg-white hover:text-[#0A2E73]"

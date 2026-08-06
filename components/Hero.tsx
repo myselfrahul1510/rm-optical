@@ -143,7 +143,7 @@ export default function Hero() {
               <div>
                 <h2 className="text-4xl font-bold text-[#0A2E73]">
                   <AnimatedCounter
-                    end={5000}
+                    end={150}
                     suffix="+"
                   />
                 </h2>

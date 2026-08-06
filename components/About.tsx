@@ -24,7 +24,7 @@ const features = [
 const stats = [
   {
     icon: Users,
-    value: "5000+",
+    value: "150+",
     label: "Happy Customers",
   },
   {
@@ -173,7 +173,7 @@ export default function About() {
               </Link>
 
               <a
-                href="tel:+91XXXXXXXXXX"
+                href="tel:+916296457668"
                 className="inline-flex items-center gap-2 rounded-full border-2 border-[#0A2E73] px-8 py-4 font-semibold text-[#0A2E73] transition hover:bg-[#0A2E73] hover:text-white"
               >
                 <Phone size={20} />

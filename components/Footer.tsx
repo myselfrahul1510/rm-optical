@@ -38,7 +38,7 @@ export default function Footer() {
             <ul className="space-y-3 text-blue-100">
 
               <li>
-                Home
+                Home 
               </li>
 
               <li>
@@ -87,11 +87,11 @@ export default function Footer() {
 
             </ul>
 
-            <p>{SITE.phone}</p>
+            <p>+91 62964 5668</p>
 
-            <p>{SITE.email}</p>
+            <p>info.rmoptical@gmail.com</p>
 
-            <p>{SITE.address}</p>
+            <p>Ukilnara, Choumatha, Jagpur Road, Payradanga, Nadia, 741247</p>
 
           </div>
 
@@ -117,7 +117,7 @@ export default function Footer() {
 
               <p className="flex gap-3 items-center">
                 <Phone size={20} />
-                +91 XXXXX XXXXX
+                +91 62964 57668
               </p>
 
 
@@ -141,15 +141,21 @@ export default function Footer() {
 
       {/* Bottom */}
 
-      <div className="border-t border-blue-400/30">
+     <div className="border-t border-blue-400/30">
 
-        <div className="container mx-auto px-6 py-5 text-center text-blue-100 text-sm">
+  <div className="container mx-auto px-6 py-5 text-center text-blue-100 text-sm">
 
-          © {new Date().getFullYear()} R.M OPTICAL. All Rights Reserved.
+    © R.M OPTICAL.  All Rights Reserved. 
+    | {new Date().toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      })}
 
-        </div>
+  </div>
 
-      </div>
+</div>
 
 
     </footer>

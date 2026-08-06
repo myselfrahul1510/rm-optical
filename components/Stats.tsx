@@ -7,25 +7,25 @@ import { motion } from "framer-motion";
 const stats = [
   {
     icon: Users,
-    number: 5000,
+    number: 150,
     suffix: "+",
     title: "Happy Customers",
   },
   {
     icon: Glasses,
-    number: 10000,
+    number: 100,
     suffix: "+",
     title: "Frames Sold",
   },
   {
     icon: Eye,
-    number: 15000,
+    number: 150,
     suffix: "+",
     title: "Eye Tests",
   },
   {
     icon: Award,
-    number: 10,
+    number: 1,
     suffix: "+",
     title: "Years Experience",
   },

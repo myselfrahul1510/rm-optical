@@ -11,7 +11,7 @@ const jsonLd = {
   name: "R.M OPTICAL",
   image: "https://rmoptical.vercel.app/og-image.jpg",
   url: "https://rmoptical.vercel.app",
-  telephone: "+91XXXXXXXXXX",
+  telephone: "+91 62964 57668",
   email: "info@rmoptical.com",
   address: {
     "@type": "PostalAddress",

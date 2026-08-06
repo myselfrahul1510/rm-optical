@@ -45,7 +45,7 @@ const items = [
 
 export default function WhyChoose() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-16 md:py-20">
 
       <div className="container">
 
@@ -55,28 +55,32 @@ export default function WhyChoose() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: .6 }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-10 max-w-3xl text-center"
         >
 
-          <span className="rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0A2E73]">
+          <span className="inline-block rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0A2E73]">
             WHY CHOOSE US
           </span>
 
-          <h2 className="mt-6 text-5xl font-bold text-[#0A2E73]">
+
+          <h2 className="mt-4 text-4xl font-bold text-[#0A2E73] md:text-5xl">
             Why Choose R.M OPTICAL?
           </h2>
 
-          <p className="mt-5 text-lg text-gray-600">
+
+          <p className="mt-3 text-base text-gray-600 md:text-lg">
             Premium eye care, trusted professionals and high-quality eyewear —
             everything you need under one roof.
           </p>
 
         </motion.div>
 
+
+
         {/* Cards */}
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
 
           {items.map((item, index) => {
 
@@ -90,28 +94,31 @@ export default function WhyChoose() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: .5,
-                  delay: index * .12,
+                  duration: 0.5,
+                  delay: index * 0.12,
                 }}
                 whileHover={{
                   y: -8,
                 }}
-                className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition hover:shadow-2xl"
+                className="group rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-2xl"
               >
 
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0A2E73] to-blue-500 text-white transition group-hover:scale-110">
+                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0A2E73] to-blue-500 text-white transition group-hover:scale-110">
 
                   <Icon size={30} />
 
                 </div>
 
-                <h3 className="text-2xl font-bold text-[#0A2E73]">
+
+                <h3 className="text-xl font-bold text-[#0A2E73] md:text-2xl">
                   {item.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-gray-600">
+
+                <p className="mt-3 leading-7 text-gray-600">
                   {item.desc}
                 </p>
+
 
               </motion.div>
 
@@ -120,42 +127,62 @@ export default function WhyChoose() {
 
         </div>
 
+
+
+
         {/* Bottom Stats */}
+
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: .3 }}
-          className="mt-20 rounded-3xl bg-[#0A2E73] px-10 py-10 text-white"
+          transition={{ delay: 0.3 }}
+          className="mt-12 rounded-3xl bg-[#0A2E73] px-6 py-8 text-white md:px-10"
         >
 
           <div className="grid gap-8 text-center md:grid-cols-3">
 
+
             <div>
-              <h3 className="text-4xl font-bold">5000+</h3>
+              <h3 className="text-4xl font-bold">
+                150+
+              </h3>
+
               <p className="mt-2 text-blue-100">
                 Happy Customers
               </p>
             </div>
 
+
+
             <div>
-              <h3 className="text-4xl font-bold">4+</h3>
+              <h3 className="text-4xl font-bold">
+                4+
+              </h3>
+
               <p className="mt-2 text-blue-100">
                 Expert Doctors
               </p>
             </div>
 
+
+
             <div>
-              <h3 className="text-4xl font-bold">100%</h3>
+              <h3 className="text-4xl font-bold">
+                100%
+              </h3>
+
               <p className="mt-2 text-blue-100">
                 Genuine Products
               </p>
             </div>
 
+
           </div>
 
         </motion.div>
+
 
       </div>
 

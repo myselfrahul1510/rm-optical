@@ -49,8 +49,8 @@ export default function Navbar() {
       link: "#contact",
     },
     {
-      name: "Our Frames",
-      link: "/collection",
+      name: "my Collection",
+      link: "/my-collection",
     }
   ];
 
@@ -146,6 +146,7 @@ export default function Navbar() {
             <Link
               href="#contact"
               className="hidden items-center justify-center rounded-full bg-[#0A2E73] px-7 py-3.5 text-[15px] font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#08245A] hover:shadow-xl md:inline-flex"
+            
             >
               Book Eye Test
             </Link>
