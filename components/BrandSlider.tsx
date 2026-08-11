@@ -6,45 +6,45 @@ import { motion } from "framer-motion";
 
 const brands = [
   {
-    name: "Ray-Ban",
-    image: "/images/brands/rayban.png",
+    name: "Tom-Star",
+    image: "/images/brands/Tomstar.jpeg",
   },
   {
-    name: "Titan Eye+",
-    image: "/images/brands/titan.png",
+    name: "LivelPool",
+    image: "/images/brands/Livelpool.jpeg",
   },
   {
-    name: "Vogue",
-    image: "/images/brands/vogue.png",
+    name: "Willam-Lady",
+    image: "/images/brands/Willam-Lady.jpeg",
   },
   {
-    name: "Oakley",
-    image: "/images/brands/oakley.png",
+    name: "Ferar",
+    image: "/images/brands/Ferar.jpeg",
   },
   {
-    name: "IDEE",
-    image: "/images/brands/idee.png",
+    name: "Lifeline",
+    image: "/images/brands/Lifeline.jpeg",
   },
   {
-    name: "Fastrack",
-    image: "/images/brands/fastrack.png",
+    name: "Fanta",
+    image: "/images/brands/fanta.jpeg",
   },
   {
-    name: "Vincent Chase",
-    image: "/images/brands/vincent-chase.png",
+    name: "Texxas",
+    image: "/images/brands/Texxas.jpeg",
   },
   {
-    name: "Police",
-    image: "/images/brands/police.png",
+    name: "Spain",
+    image: "/images/brands/Spain.jpeg",
   },
 ];
 
 export default function BrandSlider() {
   return (
     <section className="bg-slate-50 py-20">
-
       <div className="container">
 
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,35 +60,62 @@ export default function BrandSlider() {
             Brands We Trust
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-gray-600">
-            We offer genuine eyewear and lenses from India's and the world's
-            most trusted brands.
-          </p>
+          <div className="flex w-full justify-center">
+            <p className="mt-4 w-full max-w-2xl text-center text-base leading-7 text-gray-600 md:text-lg">
+              We offer genuine eyewear and lenses from India's and the world's
+              most trusted brands.
+            </p>
+          </div>
         </motion.div>
 
-        <Marquee
-          speed={40}
-          pauseOnHover
-          gradient={false}
-        >
-          {brands.map((brand) => (
-            <div
-              key={brand.name}
-              className="mx-5 flex h-32 w-56 items-center justify-center rounded-3xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-              <Image
-                src={brand.image}
-                alt={brand.name}
-                width={140}
-                height={70}
-                className="object-contain grayscale transition duration-300 hover:grayscale-0"
-              />
-            </div>
-          ))}
-        </Marquee>
-
+        {/* Brand Slider */}
+        <div className="overflow-hidden">
+          <Marquee
+            speed={40}
+            pauseOnHover
+            gradient={false}
+            autoFill
+          >
+            {brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="
+          mx-4
+          h-36
+          w-64
+          shrink-0
+          overflow-hidden
+          rounded-3xl
+          border
+          border-gray-200
+          bg-white
+          shadow-md
+          transition-all
+          duration-300
+          hover:-translate-y-2
+          hover:shadow-2xl
+        "
+              >
+                <div className="relative h-full w-full overflow-hidden">
+                  <Image
+                    src={brand.image}
+                    alt={brand.name}
+                    fill
+                    sizes="256px"
+                    className="
+              object-cover
+              object-center
+              transition-transform
+              duration-500
+              hover:scale-110
+            "
+                  />
+                </div>
+              </div>
+            ))}
+          </Marquee>
+        </div>
       </div>
-
     </section>
   );
 }

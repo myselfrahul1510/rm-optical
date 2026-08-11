@@ -51,30 +51,33 @@ export default function WhyChoose() {
 
         {/* Heading */}
 
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-10 max-w-3xl text-center"
+          className="relative left-1/2 mb-12 w-[95%] max-w-3xl -translate-x-1/2 text-center"
         >
-
-          <span className="inline-block rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0A2E73]">
+          {/* Badge */}
+          <span className="inline-flex rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0A2E73]">
             WHY CHOOSE US
           </span>
 
-
-          <h2 className="mt-4 text-4xl font-bold text-[#0A2E73] md:text-5xl">
+          {/* Heading */}
+          <h2 className="mt-5 text-center text-4xl font-bold leading-tight text-[#0A2E73] md:text-5xl">
             Why Choose R.M OPTICAL?
           </h2>
 
-
-          <p className="mt-3 text-base text-gray-600 md:text-lg">
-            Premium eye care, trusted professionals and high-quality eyewear —
-            everything you need under one roof.
-          </p>
-
+          {/* Description */}
+          <div className="flex w-full justify-center">
+            <p className="mt-4 w-full max-w-2xl text-center text-base leading-7 text-gray-600 md:text-lg">
+              Premium eye care, trusted professionals and high-quality eyewear —
+              everything you need under one roof.
+            </p>
+          </div>
         </motion.div>
+
 
 
 
@@ -90,6 +93,7 @@ export default function WhyChoose() {
 
               <motion.div
                 key={item.title}
+                style={{ padding: "10px" }}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -141,7 +145,8 @@ export default function WhyChoose() {
           className="mt-12 rounded-3xl bg-[#0A2E73] px-6 py-8 text-white md:px-10"
         >
 
-          <div className="grid gap-8 text-center md:grid-cols-3">
+          <div className="grid gap-8 text-center md:grid-cols-3"
+            style={{ marginTop: "1rem" }}>
 
 
             <div>

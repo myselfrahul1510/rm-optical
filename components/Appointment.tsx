@@ -71,30 +71,11 @@ export default function Appointment() {
                 </div>
               </div>
             </div>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href={`tel:${+916296457668}`}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-[#0A2E73] transition hover:scale-105"
-              >
-                <Phone size={20} />
-                Call Now
-              </a>
-
-              <a
-                href={`https://wa.me/${+916296457668}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white px-8 py-4 font-semibold transition hover:bg-white hover:text-[#0A2E73]"
-              >
-                <MessageCircle size={20} />
-                WhatsApp
-              </a>
-            </div>
           </motion.div>
 
           {/* Right */}
           <motion.div
+            style={{padding:"1rem"}}
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

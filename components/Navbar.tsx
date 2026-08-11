@@ -82,11 +82,10 @@ export default function Navbar() {
       {/* Navbar */}
 
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 shadow-lg backdrop-blur-xl"
-            : "bg-white/80 backdrop-blur-xl"
-        }`}
+        className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
+          ? "bg-white/95 shadow-lg backdrop-blur-xl"
+          : "bg-white/80 backdrop-blur-xl"
+          }`}
       >
 
 
@@ -120,7 +119,7 @@ export default function Navbar() {
           <nav className="hidden items-center gap-9 lg:flex">
 
 
-            {menuItems.map((item)=>(
+            {menuItems.map((item) => (
 
               <Link
                 key={item.name}
@@ -144,11 +143,21 @@ export default function Navbar() {
 
 
             <Link
-              href="#contact"
-              className="hidden items-center justify-center rounded-full bg-[#0A2E73] px-7 py-3.5 text-[15px] font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#08245A] hover:shadow-xl md:inline-flex"
-            
+              href="/book-eye-test"
+              className="group hidden items-center justify-center gap-2 rounded-full bg-[#0A2E73] px-8 py-3.5 text-[15px] font-bold text-white ring-2 ring-[#0A2E73]/30 ring-offset-2 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#08245A] hover:shadow-xl hover:shadow-blue-900/40 active:scale-95 md:inline-flex"
+              style={{color:"rgb(6, 249, 209)", backgroundColor:"rgb(13, 8, 98)", width:"10rem", height:"2.5rem"}}
             >
               Book Eye Test
+              {/* Arrow Icon */}
+              <svg
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="3"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </Link>
 
 
@@ -162,9 +171,9 @@ export default function Navbar() {
             >
 
               {open ? (
-                <X size={30}/>
+                <X size={30} />
               ) : (
-                <Menu size={30}/>
+                <Menu size={30} />
               )}
 
             </button>
@@ -187,12 +196,12 @@ export default function Navbar() {
             <nav className="flex flex-col gap-5">
 
 
-              {menuItems.map((item)=>(
+              {menuItems.map((item) => (
 
                 <Link
                   key={item.name}
                   href={item.link}
-                  onClick={()=>setOpen(false)}
+                  onClick={() => setOpen(false)}
                   className="font-medium text-gray-700 hover:text-[#0A2E73]"
                 >
                   {item.name}

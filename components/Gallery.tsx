@@ -10,29 +10,29 @@ const categories = ["All", "Store", "Frames", "Eye Test"];
 
 const images = [
   {
-    src: "/images/gallery/gallery1.jpg",
+    src: "/images/gallery/Gallery1.jpg",
     category: "Store",
   },
   {
-    src: "/images/gallery/gallery2.jpg",
+    src: "/images/gallery/Gallery2.jpg",
     category: "Frames",
   },
   {
-    src: "/images/gallery/gallery3.jpg",
+    src: "/images/gallery/Gallery3.jpg",
     category: "Eye Test",
   },
   {
-    src: "/images/gallery/gallery4.jpg",
+    src: "/images/gallery/Gallery4.jpg",
     category: "Frames",
   },
   {
-    src: "/images/gallery/gallery5.jpg",
+    src: "/images/gallery/Gallery5.jpg",
     category: "Store",
   },
-  {
-    src: "/images/gallery/gallery6.jpg",
-    category: "Eye Test",
-  },
+  // {
+  //   src: "/images/gallery/Gallery6.jpg",
+  //   category: "Eye Test",
+  // },
 ];
 
 export default function Gallery() {
@@ -51,7 +51,9 @@ export default function Gallery() {
     >
       <div className="container">
 
-        {/* Heading */}
+        {/* =====================================================
+            HEADING
+        ===================================================== */}
 
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -68,36 +70,68 @@ export default function Gallery() {
             Explore R.M OPTICAL
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-gray-600">
-            Have a look inside our premium optical store.
-          </p>
+          <div className="flex w-full justify-center">
+            <p className="mt-4 w-full max-w-2xl text-center text-base leading-7 text-gray-600 md:text-lg">
+              Have a look inside our premium optical store.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Filter Buttons */}
+        {/* =====================================================
+            CATEGORY FILTER
+        ===================================================== */}
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`rounded-full px-6 py-3 font-medium transition-all duration-300 ${
-                filter === cat
-                  ? "bg-[#0A2E73] text-white shadow-lg"
-                  : "bg-white text-gray-700 shadow hover:bg-[#0A2E73] hover:text-white"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          {categories.map((category) => {
+            const active = filter === category;
+
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => {
+                  setFilter(category);
+                  setIndex(-1);
+                }}
+                className={`
+                  rounded-full
+                  px-5
+                  py-2.5
+                  text-sm
+                  font-semibold
+                  transition-all
+                  duration-300
+                  ${
+                    active
+                      ? "bg-[#0A2E73] text-white shadow-lg shadow-blue-900/20"
+                      : "bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-blue-50 hover:text-[#0A2E73]"
+                  }
+                `}
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Gallery Grid */}
+        {/* =====================================================
+            GALLERY GRID
+        ===================================================== */}
 
         <div className="mt-14 columns-1 gap-6 md:columns-2 xl:columns-3">
+
           {filtered.map((img, i) => (
             <motion.div
               key={img.src}
               layout
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
               whileHover={{
                 scale: 1.02,
               }}
@@ -105,20 +139,132 @@ export default function Gallery() {
                 duration: 0.3,
               }}
               onClick={() => setIndex(i)}
-              className="mb-6 cursor-pointer overflow-hidden rounded-3xl"
+              className="
+                group
+                relative
+                mb-6
+                cursor-pointer
+                overflow-hidden
+                rounded-3xl
+                bg-gray-100
+                shadow-sm
+                ring-1
+                ring-gray-100
+                break-inside-avoid
+              "
             >
-              <Image
-                src={img.src}
-                alt={`Gallery ${i + 1}`}
-                width={600}
-                height={800}
-                className="w-full rounded-3xl object-cover transition duration-500 hover:scale-110"
-              />
+
+              {/* =================================================
+                  FIXED IMAGE SIZE
+              ================================================= */}
+
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
+
+                <Image
+                  src={img.src}
+                  alt={`R.M OPTICAL Gallery ${i + 1}`}
+                  fill
+                  sizes="
+                    (max-width: 768px) 100vw,
+                    (max-width: 1280px) 50vw,
+                    33vw
+                  "
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-700
+                    ease-out
+                    group-hover:scale-110
+                  "
+                />
+
+                {/* =================================================
+                    HOVER OVERLAY
+                ================================================= */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-t
+                    from-[#0A2E73]/60
+                    via-transparent
+                    to-transparent
+                    opacity-0
+                    transition-opacity
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                />
+
+                {/* =================================================
+                    VIEW ICON
+                ================================================= */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    flex
+                    items-center
+                    justify-center
+                    opacity-0
+                    transition-all
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                >
+                  <div
+                    className="
+                      flex
+                      h-14
+                      w-14
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-white/90
+                      text-[#0A2E73]
+                      shadow-xl
+                      backdrop-blur-sm
+                      transition-transform
+                      duration-500
+                      group-hover:scale-100
+                      scale-75
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12 18 18.75 12 18.75 2.25 12 2.25 12z"
+                      />
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="2.75"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+              </div>
+
             </motion.div>
           ))}
+
         </div>
 
-        {/* Lightbox */}
+        {/* =====================================================
+            LIGHTBOX
+        ===================================================== */}
 
         <Lightbox
           open={index >= 0}

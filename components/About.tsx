@@ -68,16 +68,15 @@ export default function About() {
 
             <div className="absolute -bottom-6 -right-6 h-52 w-52 rounded-full bg-blue-100 blur-3xl"></div>
 
-            <div className="relative overflow-hidden rounded-[36px] shadow-2xl">
-
+            <div className="relative w-full h-[460px] overflow-hidden rounded-[36px] shadow-2xl bg-gray-100">
               <Image
                 src="/images/about/store.jpg"
                 alt="R.M Optical"
-                width={700}
-                height={800}
-                className="h-[620px] w-full object-cover"
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
-
             </div>
 
           </motion.div>
@@ -91,7 +90,8 @@ export default function About() {
             transition={{ duration: .7 }}
           >
 
-            <span className="rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0A2E73]">
+            <span className="rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0A2E73]"
+            >
               ABOUT R.M OPTICAL
             </span>
 
@@ -139,6 +139,7 @@ export default function About() {
 
                 return (
                   <div
+                    style={{ marginTop: "1rem" }}
                     key={item.label}
                     className="rounded-2xl bg-white p-6 text-center shadow-md transition hover:-translate-y-2"
                   >
@@ -162,30 +163,8 @@ export default function About() {
               })}
 
             </div>
-
-            <div className="mt-12 flex flex-wrap gap-5">
-
-              <Link
-                href="#contact"
-                className="rounded-full bg-[#0A2E73] px-8 py-4 font-semibold text-white transition hover:bg-[#08245A]"
-              >
-                Book Eye Test
-              </Link>
-
-              <a
-                href="tel:+916296457668"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-[#0A2E73] px-8 py-4 font-semibold text-[#0A2E73] transition hover:bg-[#0A2E73] hover:text-white"
-              >
-                <Phone size={20} />
-                Call Now
-              </a>
-
-            </div>
-
           </motion.div>
-
         </div>
-
       </div>
     </section>
   );

@@ -70,10 +70,14 @@ export default function FeaturedCollection() {
                         Premium Eyewear Collection
                     </h2>
 
+                    
+                    <div className="flex w-full justify-center">
+            <p className="mt-4 w-full max-w-2xl text-center text-base leading-7 text-gray-600 md:text-lg">
+               Discover our handpicked collection of premium frames and sunglasses.
+                     </p>
+          </div>
 
-                    <p className="mx-auto mt-5 max-w-2xl text-lg text-gray-600">
-                        Discover our handpicked collection of premium frames and sunglasses.
-                    </p>
+                   
                 </motion.div>
                 {/* Product Cards */}
                 <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">

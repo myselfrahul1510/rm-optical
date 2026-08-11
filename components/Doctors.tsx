@@ -69,10 +69,13 @@ export default function Doctors() {
             Meet Our Experts
           </h2>
 
+          <div className="flex w-full justify-center">
+            <p className="mt-4 w-full max-w-2xl text-center text-base leading-7 text-gray-600 md:text-lg"
+            style={{marginBottom:"12px"}}>
+              Experienced eye specialists committed to providing quality eye care.
+            </p>
+          </div>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-gray-600">
-            Experienced eye specialists committed to providing quality eye care.
-          </p>
 
         </motion.div>
 
@@ -117,7 +120,8 @@ export default function Doctors() {
               />
 
 
-              <div className="p-6">
+              <div className="p-6"
+                style={{ padding: "1rem" }}>
 
                 <h3 className="text-xl font-bold text-[#0A2E73]">
                   {doctor.name}
@@ -134,9 +138,7 @@ export default function Doctors() {
                 </p>
 
 
-                <div className="mt-6 rounded-xl bg-blue-50 p-3 text-center text-sm font-semibold text-[#0A2E73]">
-                  Available at R.M OPTICAL
-                </div>
+
 
 
               </div>

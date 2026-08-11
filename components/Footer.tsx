@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import { SITE } from "@/constants/site";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -38,7 +39,7 @@ export default function Footer() {
             <ul className="space-y-3 text-blue-100">
 
               <li>
-                Home 
+                Home
               </li>
 
               <li>
@@ -141,21 +142,30 @@ export default function Footer() {
 
       {/* Bottom */}
 
-     <div className="border-t border-blue-400/30">
+      <div className="border-t border-blue-400/30">
 
-  <div className="container mx-auto px-6 py-5 text-center text-blue-100 text-sm">
+        <div className="container mx-auto px-6 py-5 text-center text-blue-100 text-sm">
 
-    © R.M OPTICAL.  All Rights Reserved. 
-    | {new Date().toLocaleDateString("en-IN", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      })}
+          © R.M OPTICAL.  All Rights Reserved.
+          | {new Date().toLocaleDateString("en-IN", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          })} | 
+            <Link
+              href="/login"
+              className="text-sm text-gray-500 transition hover:text-[#0A2E73]"
+            >
+            &nbsp; Admin Panel
+            </Link>
 
-  </div>
 
-</div>
+        </div>
+
+      </div>
+
+
 
 
     </footer>

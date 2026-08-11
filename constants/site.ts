@@ -3,9 +3,9 @@ export const SITE = {
 
   tagline: "আপনার চোখের যত্নে আমরা আছি আপনার পাশে",
 
-  phone: "+91XXXXXXXXXX",
+  phone: "+916296457668",
 
-  whatsapp: "91XXXXXXXXXX",
+  whatsapp: "916296457668",
 
   email: "info@rmoptical.com",
 

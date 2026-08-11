@@ -29,23 +29,20 @@ export default function EyeCareTips() {
 
 
         {/* Heading */}
-
-        <div className="text-center max-w-2xl mx-auto">
-
-          <p className="text-[#0A2E73] font-semibold uppercase tracking-wide">
+        <div className="relative left-1/2 w-screen -translate-x-1/2 px-6 text-center">
+          <p className="font-semibold uppercase tracking-wide text-[#0A2E73]">
             Eye Care Tips
           </p>
 
-
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">
             Take Better Care Of Your Eyes
           </h2>
 
-
-          <p className="mt-4 text-gray-600">
-            Simple habits that help maintain healthy vision and protect your eyes.
-          </p>
-
+          <div className="flex w-full justify-center">
+            <p className="mt-4 w-full max-w-2xl text-center text-base leading-7 text-gray-600 md:text-lg">
+              Simple habits that help maintain healthy vision and protect your eyes.
+            </p>
+          </div>
         </div>
 
 
@@ -62,6 +59,7 @@ export default function EyeCareTips() {
             return (
 
               <div
+              style={{padding:"1rem"}}
                 key={index}
                 className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition"
               >

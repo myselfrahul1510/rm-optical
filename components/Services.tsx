@@ -61,25 +61,13 @@ export default function Services() {
 
 
         {/* Heading */}
-
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative left-1/2 mb-12 w-[95%] max-w-3xl -translate-x-1/2 text-center"
         >
-
           <span className="rounded-full bg-blue-100 px-5 py-2 text-sm font-semibold text-[#0A2E73]">
             OUR SERVICES
           </span>
@@ -89,19 +77,20 @@ export default function Services() {
             Everything Your Eyes Need
           </h2>
 
-
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-gray-600">
-            From eye testing to premium eyewear, we provide
+          <div className="flex w-full justify-center">
+            <p className="mt-4 w-full max-w-2xl text-center text-base leading-7 text-gray-600 md:text-lg">
+              From eye testing to premium eyewear, we provide
             complete eye care under one roof.
-          </p>
-
+            </p>
+          </div>
         </motion.div>
 
 
 
         {/* Service Cards */}
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
+        >
 
 
           {services.map((service, index) => {
@@ -111,6 +100,7 @@ export default function Services() {
             return (
 
               <motion.div
+              style={{padding:"1rem"}}
                 key={service.title}
                 initial={{
                   opacity: 0,

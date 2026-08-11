@@ -90,39 +90,7 @@ export default function Hero() {
                 🧿 Contact Lens
               </span>
             </motion.div>
-
-            {/* Buttons */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: 0.9,
-                duration: 0.6,
-              }}
-              className="mt-10 flex flex-wrap gap-4"
-            >
-              <Link
-                href="/collection"
-                className="rounded-full bg-[#0A2E73] px-8 py-4 font-semibold text-white transition duration-300 hover:-translate-y-1 hover:bg-[#08245A] hover:shadow-xl"
-              >
-                Explore Collection
-              </Link>
-
-              <Link
-                href="/appointment"
-                className="rounded-full border-2 border-[#0A2E73] px-8 py-4 font-semibold text-[#0A2E73] transition duration-300 hover:-translate-y-1 hover:bg-[#0A2E73] hover:text-white hover:shadow-xl"
-              >
-                Book Eye Test
-              </Link>
-            </motion.div>
-
+            
             {/* Stats */}
 
             <motion.div
