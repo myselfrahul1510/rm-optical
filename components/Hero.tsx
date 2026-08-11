@@ -193,7 +193,7 @@ export default function Hero() {
               className="relative overflow-hidden rounded-[40px] bg-white p-4 shadow-2xl"
             >
               <Image
-                src="/images/hero/hero.jpg"
+                src="/images/hero/Hero.jpg"
                 alt="R.M Optical"
                 width={700}
                 height={700}

@@ -10,12 +10,13 @@ const categories = ["All", "Store", "Frames", "Eye Test"];
 
 const images = [
   {
-    src: "/images/gallery/Gallery1.jpg",
+    src: "/images/gallery/Gallery.jpg",
     category: "Store",
   },
   {
     src: "/images/gallery/Gallery2.jpg",
-    category: "Frames",
+    category: "Eye Test",
+    
   },
   {
     src: "/images/gallery/Gallery3.jpg",
@@ -27,7 +28,7 @@ const images = [
   },
   {
     src: "/images/gallery/Gallery5.jpg",
-    category: "Store",
+    category: "Frames",
   },
   // {
   //   src: "/images/gallery/Gallery6.jpg",
@@ -93,6 +94,7 @@ export default function Gallery() {
                   setFilter(category);
                   setIndex(-1);
                 }}
+                style={{padding:"3px 10px", marginBottom:"1rem"}}
                 className={`
                   rounded-full
                   px-5
@@ -101,9 +103,10 @@ export default function Gallery() {
                   font-semibold
                   transition-all
                   duration-300
+                  
                   ${
                     active
-                      ? "bg-[#0A2E73] text-white shadow-lg shadow-blue-900/20"
+                      ? "bg-[#0A2E73] text-black shadow-lg shadow-blue-900/20"
                       : "bg-white text-gray-600 ring-1 ring-gray-200 hover:bg-blue-50 hover:text-[#0A2E73]"
                   }
                 `}
