@@ -80,7 +80,7 @@ export default function LoginPage() {
           <input
             type="email"
             placeholder="Enter your email"
-            style={{ padding: "5px" }}
+            style={{ padding: "5px 15px" }}
             className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-700 outline-none transition-all duration-300 focus:border-[#0A2E73] focus:ring-4 focus:ring-blue-100"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -101,7 +101,7 @@ export default function LoginPage() {
           <input
             type="password"
             placeholder="Enter your password"
-            style={{ padding: "5px" }}
+            style={{ padding: "5px 15px" }}
             className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-700 outline-none transition-all duration-300 focus:border-[#0A2E73] focus:ring-4 focus:ring-blue-100"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
