@@ -23,7 +23,7 @@ const brands = [
   },
   {
     name: "Lifeline",
-    image: "/images/brands/Lifeline.jpeg",
+    image: "/images/brands/LifeLine.jpeg",
   },
   {
     name: "Fanta",
