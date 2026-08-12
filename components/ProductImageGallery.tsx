@@ -12,6 +12,9 @@ export default function ProductImageGallery({
   images,
   productName,
 }: ProductImageGalleryProps) {
+
+  console.log("PRODUCT IMAGES:", images);
+
   const [selectedImage, setSelectedImage] = useState(
     images.length > 0 ? images[0] : ""
   );
@@ -25,9 +28,14 @@ export default function ProductImageGallery({
   }
 
   return (
-    <div className="w-full" style={{marginTop:"1rem", marginLeft:"1rem"}}>
+    <div
+      className="w-full"
+      style={{ marginTop: "1rem", marginLeft: "1rem" }}
+    >
 
-      {/* MAIN IMAGE */}
+      {/* =====================================================
+          MAIN / COVER IMAGE
+      ===================================================== */}
 
       <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl">
 
@@ -47,36 +55,46 @@ export default function ProductImageGallery({
 
       </div>
 
-      {/* THUMBNAILS */}
+
+      {/* =====================================================
+          THUMBNAILS
+      ===================================================== */}
 
       {images.length > 1 && (
-        <div className="mt-5 grid grid-cols-4 gap-3 sm:grid-cols-5 md:grid-cols-6">
+        <div className="mt-5 w-full overflow-x-auto pb-2">
 
-          {images.map((image, index) => {
-            const isSelected = selectedImage === image;
+          <div className="flex min-w-max gap-3">
 
-            return (
-              <button
-                key={`${image}-${index}`}
-                type="button"
-                onClick={() => setSelectedImage(image)}
-                className={`relative h-24 overflow-hidden rounded-xl border-2 bg-white transition-all duration-200 ${
-                  isSelected
-                    ? "border-[#0A2E73] shadow-md ring-2 ring-[#0A2E73]/20"
-                    : "border-gray-200 hover:border-[#0A2E73]"
-                }`}
-              >
-                <Image
-                  src={image}
-                  alt={`${productName} thumbnail ${index + 1}`}
-                  fill
-                  unoptimized
-                  sizes="100px"
-                  className="object-contain p-2"
-                />
-              </button>
-            );
-          })}
+            {images.map((image, index) => {
+
+              const isSelected = selectedImage === image;
+
+              return (
+                <button
+                  key={`${image}-${index}`}
+                  type="button"
+                  onClick={() => setSelectedImage(image)}
+                  className={`relative h-24 w-24 shrink-0 overflow-hidden rounded-xl border-2 bg-white transition-all duration-200 ${
+                    isSelected
+                      ? "border-[#0A2E73] shadow-md ring-2 ring-[#0A2E73]/20"
+                      : "border-gray-200 hover:border-[#0A2E73]"
+                  }`}
+                >
+
+                  <Image
+                    src={image}
+                    alt={`${productName} thumbnail ${index + 1}`}
+                    fill
+                    unoptimized
+                    sizes="100px"
+                    className="object-contain p-2"
+                  />
+
+                </button>
+              );
+            })}
+
+          </div>
 
         </div>
       )}

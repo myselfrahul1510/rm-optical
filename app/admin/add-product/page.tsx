@@ -66,13 +66,19 @@ export default function AddProductPage() {
       return;
     }
 
-    setSelectedImages((prev) => [...prev, ...newFiles]);
+    setSelectedImages((prev) => [
+      ...prev,
+      ...newFiles,
+    ]);
 
     const urls = newFiles.map((file) =>
       URL.createObjectURL(file)
     );
 
-    setPreviews((prev) => [...prev, ...urls]);
+    setPreviews((prev) => [
+      ...prev,
+      ...urls,
+    ]);
   }
 
   function removeImage(index: number) {
@@ -86,7 +92,9 @@ export default function AddProductPage() {
   }
 
   async function uploadImages() {
-    if (selectedImages.length === 0) return [];
+    if (selectedImages.length === 0) {
+      return [];
+    }
 
     setUploading(true);
 
@@ -137,6 +145,12 @@ export default function AddProductPage() {
       return;
     }
 
+    // =====================================================
+    // SAVE PRODUCT
+    // ALL IMAGE URLS ARE NOW SAVED
+    // FIRST IMAGE = COVER IMAGE
+    // =====================================================
+
     const { error } = await supabase
       .from("products")
       .insert([
@@ -162,7 +176,10 @@ export default function AddProductPage() {
 
           stock: Number(form.stock),
 
-          image: imageUrls[0],
+          // IMPORTANT:
+          // Save ALL uploaded image URLs
+          // First image automatically becomes cover image
+          image: JSON.stringify(imageUrls),
 
           featured: false,
         },
@@ -193,8 +210,8 @@ export default function AddProductPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] px-4 py-8 flex justify-center"
-
+    <div
+      className="min-h-screen bg-[#f3f4f6] px-4 py-8 flex justify-center"
     >
 
       <div className="w-full max-w-3xl rounded-2xl bg-white p-8 shadow-xl">
@@ -221,7 +238,8 @@ export default function AddProductPage() {
           {/* Product Information */}
 
           <div
-            style={{ margin: "10px" }}>
+            style={{ margin: "10px" }}
+          >
 
             <h2 className="mb-5 text-xl font-bold text-[#0A2E73]">
               Product Information
@@ -247,7 +265,7 @@ export default function AddProductPage() {
                   onChange={(e) =>
                     setForm({
                       ...form,
-                      name: e.target.value
+                      name: e.target.value,
                     })
                   }
                 />
@@ -272,7 +290,7 @@ export default function AddProductPage() {
                   onChange={(e) =>
                     setForm({
                       ...form,
-                      brand: e.target.value
+                      brand: e.target.value,
                     })
                   }
                 />
@@ -294,7 +312,7 @@ export default function AddProductPage() {
                   onChange={(e) =>
                     setForm({
                       ...form,
-                      category: e.target.value
+                      category: e.target.value,
                     })
                   }
                 >
@@ -316,7 +334,7 @@ export default function AddProductPage() {
                   </option>
 
                   <option value="Men / Women / Kids">
-                    Men / Women / Kids
+                    Unisexual 
                   </option>
 
                 </select>
@@ -345,10 +363,11 @@ export default function AddProductPage() {
                     setForm({
                       ...form,
                       price: value,
-                      sellingPrice: calculateSellingPrice(
-                        value,
-                        form.discount
-                      )
+                      sellingPrice:
+                        calculateSellingPrice(
+                          value,
+                          form.discount
+                        ),
                     });
 
                   }}
@@ -378,10 +397,11 @@ export default function AddProductPage() {
                     setForm({
                       ...form,
                       discount: value,
-                      sellingPrice: calculateSellingPrice(
-                        form.price,
-                        value
-                      )
+                      sellingPrice:
+                        calculateSellingPrice(
+                          form.price,
+                          value
+                        ),
                     });
 
                   }}
@@ -406,8 +426,10 @@ export default function AddProductPage() {
 
               </div>
 
-              <div className="mt-5 rounded-xl border border-green-200 bg-green-50 p-5"
-                style={{ padding: "10px", }}>
+              <div
+                className="mt-5 rounded-xl border border-green-200 bg-green-50 p-5"
+                style={{ padding: "10px" }}
+              >
 
                 <div className="flex justify-between">
 
@@ -428,12 +450,11 @@ export default function AddProductPage() {
                   </span>
 
                   <span className="font-bold text-red-600">
-                    ₹{
-                      calculateSavings(
-                        form.price,
-                        form.sellingPrice
-                      )
-                    }
+                    ₹
+                    {calculateSavings(
+                      form.price,
+                      form.sellingPrice
+                    )}
                   </span>
 
                 </div>
@@ -470,7 +491,7 @@ export default function AddProductPage() {
                   onChange={(e) =>
                     setForm({
                       ...form,
-                      stock: e.target.value
+                      stock: e.target.value,
                     })
                   }
                 />
@@ -484,7 +505,8 @@ export default function AddProductPage() {
           {/* Description */}
 
           <div
-            style={{ margin: "10px" }}>
+            style={{ margin: "10px" }}
+          >
 
             <label className="mb-2 block font-semibold">
               Description
@@ -500,7 +522,7 @@ export default function AddProductPage() {
               onChange={(e) =>
                 setForm({
                   ...form,
-                  description: e.target.value
+                  description: e.target.value,
                 })
               }
             />
@@ -511,8 +533,9 @@ export default function AddProductPage() {
 
           <div style={{ padding: "5px" }}>
 
-            <h2 className="mb-5 text-xl font-bold text-[#0A2E73]"
-            style={{ padding: "5px" }}
+            <h2
+              className="mb-5 text-xl font-bold text-[#0A2E73]"
+              style={{ padding: "5px" }}
             >
               Product Images
             </h2>
@@ -522,9 +545,11 @@ export default function AddProductPage() {
               <p className="text-lg font-semibold text-[#0A2E73]">
                 Upload Product Images
               </p>
+
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2"
+            <div
+              className="grid gap-4 md:grid-cols-2"
               style={{ marginTop: "10px" }}
             >
 
@@ -550,9 +575,11 @@ export default function AddProductPage() {
                 multiple
                 className="hidden"
                 onChange={(e) => {
+
                   if (e.target.files) {
                     handleFiles(e.target.files);
                   }
+
                 }}
               />
 
@@ -578,9 +605,11 @@ export default function AddProductPage() {
                 capture="environment"
                 className="hidden"
                 onChange={(e) => {
+
                   if (e.target.files) {
                     handleFiles(e.target.files);
                   }
+
                 }}
               />
 
@@ -590,62 +619,59 @@ export default function AddProductPage() {
 
           {/* Preview */}
 
-          {
-            previews.length > 0 && (
+          {previews.length > 0 && (
 
-              <div>
+            <div>
 
-                <h2 className="mb-4 text-xl font-bold text-[#0A2E73]">
-                  Image Preview
-                </h2>
+              <h2 className="mb-4 text-xl font-bold text-[#0A2E73]">
+                Image Preview
+              </h2>
 
-                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
 
-                  {
-                    previews.map((image, index) => (
+                {previews.map((image, index) => (
 
-                      <div
-                        key={index}
-                        className="relative"
-                      >
+                  <div
+                    key={index}
+                    className="relative"
+                  >
 
-                        <img
-                          src={image}
-                          alt=""
-                          className="h-36 w-full rounded-xl border object-cover"
-                        />
+                    <img
+                      src={image}
+                      alt=""
+                      className="h-36 w-full rounded-xl border object-cover"
+                    />
 
-                        <button
-                          type="button"
-                          onClick={() => removeImage(index)}
-                          style={{
-                            position: "absolute",
-                            top: 8,
-                            right: 8,
-                            width: 30,
-                            height: 30,
-                            borderRadius: "50%",
-                            background: "#dc2626",
-                            color: "#fff",
-                            fontWeight: "bold",
-                            cursor: "pointer"
-                          }}
-                        >
-                          ✕
-                        </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        removeImage(index)
+                      }
+                      style={{
+                        position: "absolute",
+                        top: 8,
+                        right: 8,
+                        width: 30,
+                        height: 30,
+                        borderRadius: "50%",
+                        background: "#dc2626",
+                        color: "#fff",
+                        fontWeight: "bold",
+                        cursor: "pointer",
+                      }}
+                    >
+                      ✕
+                    </button>
 
-                      </div>
+                  </div>
 
-                    ))
-                  }
-
-                </div>
+                ))}
 
               </div>
 
-            )
-          }
+            </div>
 
+          )}
 
           {/* Submit */}
 
@@ -662,17 +688,18 @@ export default function AddProductPage() {
               fontSize: "18px",
               fontWeight: "700",
               cursor: "pointer",
-              opacity: loading || uploading ? 0.6 : 1
+              opacity:
+                loading || uploading
+                  ? 0.6
+                  : 1,
             }}
           >
 
-            {
-              uploading
-                ? "Uploading Images..."
-                : loading
-                  ? "Saving Product..."
-                  : "Add Product"
-            }
+            {uploading
+              ? "Uploading Images..."
+              : loading
+                ? "Saving Product..."
+                : "Add Product"}
 
           </button>
 
@@ -681,6 +708,5 @@ export default function AddProductPage() {
       </div>
 
     </div>
-
   );
 }
