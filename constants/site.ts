@@ -23,5 +23,5 @@ export const SITE = {
 
   googleRating: "4.9",
 
-  totalCustomers: "5000+",
+  totalCustomers: "250+",
 };

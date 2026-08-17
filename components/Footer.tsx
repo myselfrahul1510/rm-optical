@@ -90,7 +90,7 @@ export default function Footer() {
 
             <p>+91 62964 5668</p>
 
-            <p>info.rmoptical@gmail.com</p>
+            <p>rmoptical2026@gmail.com</p>
 
             <p>Ukilnara, Choumatha, Jagpur Road, Payradanga, Nadia, 741247</p>
 
@@ -124,7 +124,7 @@ export default function Footer() {
 
               <p className="flex gap-3 items-center">
                 <Mail size={20} />
-                info@rmoptical.com
+                rmoptical2026@gmail.com
               </p>
 
 

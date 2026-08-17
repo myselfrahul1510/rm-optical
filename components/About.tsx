@@ -24,7 +24,7 @@ const features = [
 const stats = [
   {
     icon: Users,
-    value: "150+",
+    value: "250+",
     label: "Happy Customers",
   },
   {
